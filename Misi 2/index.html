@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hitung zikir harian dengan counter interaktif."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Ramadhan Challenge — Hitung Zikir</title>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-amber-50/30 text-slate-900"
+  >
+    <div
+      class="mx-auto max-w-6xl px-6 sm:px-8 md:px-12 py-10 lg:py-16 space-y-12"
+    >
+      <header class="text-center space-y-3">
+        <div
+          class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-sm ring-1 ring-emerald-100"
+        >
+          <svg
+            xmlns="httxp://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            class="h-6 w-6 text-emerald-700"
+            aria-hidden="true"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M9.813 4.132a7.5 7.5 0 0 0 7.055 12.96A8.001 8.001 0 1 1 9.813 4.132Z"
+            />
+          </svg>
+        </div>
+        <h1 class="text-3xl font-bold text-emerald-900 sm:text-4xl">
+          Hitung Zikir
+        </h1>
+        <p class="mx-auto max-w-2xl text-[17px] text-slate-700">
+          Counter dzikir harian yang simpel, responsif, dan bisa atur target
+          sendiri.
+        </p>
+      </header>
+
+      <main class="flex justify-center" aria-label="Halaman hitung zikir">
+        <section
+          class="card-clean rounded-3xl p-6 sm:p-9 w-full max-w-2xl space-y-7"
+        >
+          <div class="w-full">
+            <div
+              class="flex w-full flex-col gap-3 rounded-2xl bg-white px-3 py-3 ring-1 ring-emerald-100 shadow-sm sm:flex-row sm:items-center sm:gap-4"
+            >
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-slate-700">Ubah target</p>
+                <p class="text-xs text-slate-500">
+                  Pilih cepat atau masukkan custom
+                </p>
+              </div>
+              <div
+                class="flex w-full flex-col gap-2 sm:w-[420px] sm:flex-row sm:items-center"
+              >
+                <select
+                  id="targetSelect"
+                  class="w-full rounded-xl border border-emerald-100 bg-white px-3 py-2 text-sm font-semibold text-emerald-900 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+                >
+                  <option value="33" selected>33 (tasbih harian)</option>
+                  <option value="100">100 (istighfar sunnah)</option>
+                  <option value="300">300 (dzikir panjang)</option>
+                  <option value="1000">1000 (wirid intensif)</option>
+                  <option value="custom">Custom…</option>
+                </select>
+                <input
+                  id="customTarget"
+                  type="number"
+                  min="1"
+                  placeholder="Custom"
+                  class="hidden w-full rounded-xl border border-emerald-100 bg-white px-3 py-2 text-sm font-semibold text-emerald-900 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div class="gauge">
+              <div id="gaugeRing" class="gauge-ring"></div>
+              <div class="gauge-center">
+                <div class="space-y-1">
+                  <p class="text-xs uppercase tracking-wide text-slate-500">
+                    Total zikir
+                  </p>
+                  <p
+                    id="counter"
+                    class="text-5xl font-bold text-emerald-900"
+                    aria-live="polite"
+                  >
+                    0
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="text-center sm:text-left space-y-2">
+              <p class="text-sm font-semibold text-slate-600">Sisa target</p>
+              <p id="remaining" class="text-xl font-semibold text-emerald-800">
+                Sisa 33 lagi
+              </p>
+              <p class="text-sm text-slate-600">
+                Target saat ini:
+                <span id="targetDisplay" class="font-semibold text-emerald-800"
+                  >33</span
+                >
+                kali
+              </p>
+              <p
+                id="badge"
+                class="mx-auto sm:mx-0 hidden inline-flex w-fit items-center gap-2 rounded-full bg-emerald-50/90 px-3 py-1.5 text-sm font-semibold text-emerald-900 ring-1 ring-emerald-200 shadow-sm"
+                aria-live="polite"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  class="h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                    d="M9 12.75 11.25 15 15 9.75"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                </svg>
+                Target tercapai!
+              </p>
+              <p class="text-sm text-slate-600">
+                Capai target lalu reset untuk memulai putaran baru.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button
+              id="btnPlus"
+              type="button"
+              class="group inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3 text-base font-semibold text-white shadow-lg transition active:scale-95 active:shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                class="h-5 w-5"
+                aria-hidden="true"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.8"
+                  d="M12 6v12m6-6H6"
+                />
+              </svg>
+              Tambah 1
+            </button>
+            <button
+              id="btnReset"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-4 py-3 text-base font-semibold text-emerald-800 ring-1 ring-emerald-100 shadow-sm transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                class="h-5 w-5"
+                aria-hidden="true"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.8"
+                  d="M4.5 12a7.5 7.5 0 0 1 12.42-5.3"
+                />
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.8"
+                  d="M19.5 12a7.5 7.5 0 0 1-12.42 5.3"
+                />
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.8"
+                  d="M4.5 8v4H8.5"
+                />
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.8"
+                  d="M19.5 16v-4H15.5"
+                />
+              </svg>
+              Reset
+            </button>
+          </div>
+
+          <div
+            class="rounded-2xl bg-white/90 px-4 py-3 text-sm text-slate-700 ring-1 ring-emerald-100"
+          >
+            <p class="font-semibold text-emerald-900">Tips singkat</p>
+            <p>
+              Jaga konsistensi: baca perlahan, fokuskan hati, dan istirahat
+              sejenak bila perlu.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-emerald-100 pt-6 text-sm text-slate-600">
+        <div
+          class="flex flex-col gap-2 text-center sm:text-left sm:flex-row sm:items-center sm:justify-between"
+        >
+          <span>Ramadhan Challenge</span>
+          <span class="text-slate-500"
+            >Semoga bermanfaat untuk dzikir harian.</span
+          >
+        </div>
+      </footer>
+    </div>
+
+    <script src="./assets/js/zikir.js" defer></script>
+    <div
+      id="toast"
+      class="pointer-events-none fixed inset-x-0 top-6 flex justify-center px-4"
+    >
+      <div
+        class="hidden items-center gap-2 rounded-2xl bg-emerald-700 px-4 py-3 text-sm font-semibold text-white shadow-lg ring-1 ring-emerald-900/20"
+        role="status"
+        aria-live="polite"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          class="h-5 w-5"
+          aria-hidden="true"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.8"
+            d="M9 12.75 11.25 15 15 9.75"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            r="9"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+        </svg>
+        <span id="toastMessage">Target tercapai! Barakallah.</span>
+      </div>
+    </div>
+  </body>
+</html>
