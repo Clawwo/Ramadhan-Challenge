@@ -17,8 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let count = 0;
   const presetDefault = Number(targetSelectEl?.value) || 33;
   let target = presetDefault;
+  let hasReached = false;
 
   const clearCompletionState = () => {
+    hasReached = false;
     if (badgeEl) {
       badgeEl.classList.add("hidden");
       badgeEl.style.display = "none";
@@ -43,12 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "Target tercapai"
         : `Sisa ${remaining} lagi`;
     }
-    if (reached) showToast("Target tercapai! Barakallah.");
+    if (reached && !hasReached) showToast("Target tercapai! Barakallah.");
+    hasReached = reached;
   };
 
   const setTarget = (value) => {
     const parsed = Number(value);
     target = Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : 33;
+    count = 0;
+    clearCompletionState();
+    hideToast();
     if (targetDisplayEl) targetDisplayEl.textContent = target;
     updateCounter();
   };
