@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const nilaiNisabEl = document.getElementById("nilaiNisab");
   const statusZakatEl = document.getElementById("statusZakat");
   const jumlahZakatEl = document.getElementById("jumlahZakat");
-  const jumlahZakatContainerEl = document.getElementById("jumlahZakatContainer");
+  const jumlahZakatContainerEl = document.getElementById(
+    "jumlahZakatContainer",
+  );
 
   // Constants
   const NISAB_GRAM = 85;
@@ -34,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Remove all non-digit characters
     const number = value.replace(/\D/g, "");
     if (number === "") return "";
-    
+
     // Format with thousand separators (dots)
     const formatted = number.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return `Rp ${formatted}`;
@@ -54,16 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const cursorPos = input.selectionStart;
     const oldValue = input.value;
     const oldLength = oldValue.length;
-    
+
     // Format the value
     const formatted = formatInputRupiah(input.value);
     input.value = formatted;
-    
+
     // Adjust cursor position
     const newLength = formatted.length;
     const diff = newLength - oldLength;
     const newCursorPos = Math.max(0, cursorPos + diff);
-    
+
     // Set cursor position after formatting
     setTimeout(() => {
       input.setSelectionRange(newCursorPos, newCursorPos);
@@ -73,9 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Setup rupiah input formatting
   const setupRupiahInput = (input) => {
     if (!input) return;
-    
+
     input.addEventListener("input", handleRupiahInput);
-    
+
     // Format on blur if empty show nothing
     input.addEventListener("blur", () => {
       if (parseRupiah(input.value) === 0) {

@@ -48,7 +48,8 @@
           Kalkulator Zakat
         </h1>
         <p class="mx-auto max-w-2xl text-[17px] text-slate-700">
-          Hitung zakat penghasilan atau zakat emas dengan mudah berdasarkan nisab terkini.
+          Hitung zakat penghasilan atau zakat emas dengan mudah berdasarkan
+          nisab terkini.
         </p>
       </header>
 
@@ -58,7 +59,10 @@
         <section class="card-clean rounded-3xl p-6 md:p-8 space-y-6">
           <!-- Pilihan Jenis Zakat -->
           <div class="space-y-2">
-            <label for="jenisZakat" class="block text-sm font-semibold text-slate-700">
+            <label
+              for="jenisZakat"
+              class="block text-sm font-semibold text-slate-700"
+            >
               Jenis Zakat
             </label>
             <select
@@ -72,7 +76,10 @@
 
           <!-- Input Harga Emas -->
           <div class="space-y-2">
-            <label for="hargaEmas" class="block text-sm font-semibold text-slate-700">
+            <label
+              for="hargaEmas"
+              class="block text-sm font-semibold text-slate-700"
+            >
               Harga Emas per Gram
             </label>
             <input
@@ -82,13 +89,18 @@
               inputmode="numeric"
               class="w-full rounded-xl border border-emerald-100 bg-white px-4 py-3 text-sm font-semibold text-emerald-900 placeholder:text-slate-400 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all"
             />
-            <p class="text-xs text-slate-500">Digunakan untuk menghitung nisab (85 gram emas)</p>
+            <p class="text-xs text-slate-500">
+              Digunakan untuk menghitung nisab (85 gram emas)
+            </p>
           </div>
 
           <!-- Form Zakat Penghasilan -->
           <div id="formPenghasilan" class="space-y-4">
             <div class="space-y-2">
-              <label for="gaji" class="block text-sm font-semibold text-slate-700">
+              <label
+                for="gaji"
+                class="block text-sm font-semibold text-slate-700"
+              >
                 Gaji Bulanan
               </label>
               <input
@@ -100,7 +112,10 @@
               />
             </div>
             <div class="space-y-2">
-              <label for="penghasilanLain" class="block text-sm font-semibold text-slate-700">
+              <label
+                for="penghasilanLain"
+                class="block text-sm font-semibold text-slate-700"
+              >
                 Penghasilan Lain
               </label>
               <input
@@ -116,7 +131,10 @@
           <!-- Form Zakat Emas -->
           <div id="formEmas" class="hidden space-y-4">
             <div class="space-y-2">
-              <label for="totalEmas" class="block text-sm font-semibold text-slate-700">
+              <label
+                for="totalEmas"
+                class="block text-sm font-semibold text-slate-700"
+              >
                 Total Emas yang Dimiliki (gram)
               </label>
               <input
@@ -165,24 +183,39 @@
                 />
               </svg>
             </div>
-            <h2 class="text-xl font-semibold text-emerald-900">Hasil Perhitungan</h2>
+            <h2 class="text-xl font-semibold text-emerald-900">
+              Hasil Perhitungan
+            </h2>
           </div>
 
           <div class="space-y-4">
             <!-- Total Harta -->
-            <div class="flex items-center justify-between rounded-xl bg-slate-50 px-4 py-3">
+            <div
+              class="flex items-center justify-between rounded-xl bg-slate-50 px-4 py-3"
+            >
               <span class="text-sm text-slate-600">Total Harta</span>
-              <span id="totalHarta" class="text-sm font-semibold text-slate-900">Rp 0</span>
+              <span id="totalHarta" class="text-sm font-semibold text-slate-900"
+                >Rp 0</span
+              >
             </div>
 
             <!-- Nilai Nisab -->
-            <div class="flex items-center justify-between rounded-xl bg-slate-50 px-4 py-3">
-              <span class="text-sm text-slate-600">Nilai Nisab (85 gram emas)</span>
-              <span id="nilaiNisab" class="text-sm font-semibold text-slate-900">Rp 0</span>
+            <div
+              class="flex items-center justify-between rounded-xl bg-slate-50 px-4 py-3"
+            >
+              <span class="text-sm text-slate-600"
+                >Nilai Nisab (85 gram emas)</span
+              >
+              <span id="nilaiNisab" class="text-sm font-semibold text-slate-900"
+                >Rp 0</span
+              >
             </div>
 
             <!-- Status Wajib -->
-            <div class="flex items-center justify-between rounded-xl px-4 py-3" id="statusContainer">
+            <div
+              class="flex items-center justify-between rounded-xl px-4 py-3"
+              id="statusContainer"
+            >
               <span class="text-sm text-slate-600">Status Zakat</span>
               <span
                 id="statusZakat"
@@ -197,9 +230,15 @@
               id="jumlahZakatContainer"
               class="mt-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 p-5 text-center shadow-lg shadow-emerald-200"
             >
-              <p class="text-sm font-medium text-emerald-100">Zakat yang Harus Dibayar</p>
-              <p id="jumlahZakat" class="mt-1 text-3xl font-bold text-white">Rp 0</p>
-              <p class="mt-2 text-xs text-emerald-100">(2.5% dari total harta)</p>
+              <p class="text-sm font-medium text-emerald-100">
+                Zakat yang Harus Dibayar
+              </p>
+              <p id="jumlahZakat" class="mt-1 text-3xl font-bold text-white">
+                Rp 0
+              </p>
+              <p class="mt-2 text-xs text-emerald-100">
+                (2.5% dari total harta)
+              </p>
             </div>
           </div>
         </section>
@@ -225,10 +264,13 @@
               </svg>
             </div>
             <div class="space-y-1">
-              <p class="text-sm font-semibold text-amber-900">Catatan Penting</p>
+              <p class="text-sm font-semibold text-amber-900">
+                Catatan Penting
+              </p>
               <p class="text-sm text-amber-800">
-                Perhitungan ini menggunakan rumus dasar zakat 2.5% dengan nisab 85 gram emas.
-                Untuk perhitungan yang lebih akurat, silakan konsultasi dengan lembaga zakat resmi.
+                Perhitungan ini menggunakan rumus dasar zakat 2.5% dengan nisab
+                85 gram emas. Untuk perhitungan yang lebih akurat, silakan
+                konsultasi dengan lembaga zakat resmi.
               </p>
             </div>
           </div>
