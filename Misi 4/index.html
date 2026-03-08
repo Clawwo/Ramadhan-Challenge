@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ramadhan To-Do List harian: shalat, tilawah, dan puasa dengan progress tracker."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Ramadhan Challenge — To-Do List</title>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-amber-50/30 text-slate-900"
+  >
+    <div
+      class="mx-auto max-w-4xl px-5 sm:px-6 md:px-10 py-10 lg:py-14 space-y-10"
+    >
+      <!-- Header -->
+      <header class="text-center space-y-3">
+        <div
+          class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-sm ring-1 ring-emerald-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            class="h-6 w-6 text-emerald-700"
+            aria-hidden="true"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M4 12a8 8 0 1 0 16 0A8 8 0 0 0 4 12Zm8-9v4m0 10v4m-3-2.25.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 15.47 12.768 15.25 12 15.25c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.997.659"
+            />
+          </svg>
+        </div>
+        <h1 class="text-3xl font-bold text-emerald-900 sm:text-4xl">
+          Ramadhan To-Do List
+        </h1>
+        <p class="mx-auto max-w-2xl text-[17px] text-slate-700">
+          Pantau konsistensi ibadah harian: shalat wajib, tilawah, dan puasa
+          dengan checklist dan progres otomatis.
+        </p>
+      </header>
+
+      <main class="grid gap-6 lg:grid-cols-2" aria-label="Ramadhan To-Do List">
+        <!-- Ringkasan Progress -->
+        <section
+          class="card-clean rounded-3xl p-6 md:p-8 space-y-6 lg:col-span-2"
+        >
+          <div
+            class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div class="space-y-1">
+              <p class="text-sm font-semibold text-slate-600">
+                Progress harian
+              </p>
+              <div class="flex items-end gap-2">
+                <p
+                  id="overallProgress"
+                  class="text-4xl font-bold text-emerald-800"
+                >
+                  0%
+                </p>
+                <span class="text-sm text-slate-500"
+                  >gabungan shalat, Qur'an, puasa</span
+                >
+              </div>
+            </div>
+            <div
+              id="motivationBadge"
+              class="inline-flex items-center gap-2 self-start rounded-full px-3 py-1.5 text-xs font-semibold bg-emerald-50 text-emerald-800 ring-1 ring-emerald-100"
+            >
+              Status motivasi
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="h-3 w-full overflow-hidden rounded-full bg-slate-100">
+              <div
+                id="overallBar"
+                class="h-full rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 transition-all"
+                style="width: 0%"
+              ></div>
+            </div>
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <div class="rounded-xl bg-slate-50 px-4 py-3">
+                <p class="text-xs text-slate-500">Shalat wajib</p>
+                <p id="shalatStat" class="text-lg font-semibold text-slate-900">
+                  0%
+                </p>
+              </div>
+              <div class="rounded-xl bg-slate-50 px-4 py-3">
+                <p class="text-xs text-slate-500">Baca Qur'an</p>
+                <p id="quranStat" class="text-lg font-semibold text-slate-900">
+                  0%
+                </p>
+              </div>
+              <div class="rounded-xl bg-slate-50 px-4 py-3">
+                <p class="text-xs text-slate-500">Puasa</p>
+                <p id="puasaStat" class="text-lg font-semibold text-slate-900">
+                  0%
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Shalat -->
+        <section
+          class="card-clean rounded-3xl p-6 md:p-8 space-y-6"
+          aria-label="Checklist shalat wajib"
+        >
+          <div class="space-y-2">
+            <p class="text-sm font-semibold text-emerald-800">Shalat Wajib</p>
+            <h2 class="text-xl font-bold text-emerald-900">Checklist harian</h2>
+            <p class="text-sm text-slate-600">
+              Centang shalat yang sudah ditunaikan hari ini.
+            </p>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-2">
+            <label
+              class="flex items-center gap-3 rounded-2xl border border-emerald-100 bg-white px-4 py-3 shadow-sm"
+            >
+              <input
+                type="checkbox"
+                id="shalatSubuh"
+                class="h-5 w-5 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-400"
+              />
+              <span class="text-sm font-semibold text-slate-800">Subuh</span>
+            </label>
+            <label
+              class="flex items-center gap-3 rounded-2xl border border-emerald-100 bg-white px-4 py-3 shadow-sm"
+            >
+              <input
+                type="checkbox"
+                id="shalatDzuhur"
+                class="h-5 w-5 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-400"
+              />
+              <span class="text-sm font-semibold text-slate-800">Dzuhur</span>
+            </label>
+            <label
+              class="flex items-center gap-3 rounded-2xl border border-emerald-100 bg-white px-4 py-3 shadow-sm"
+            >
+              <input
+                type="checkbox"
+                id="shalatAshar"
+                class="h-5 w-5 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-400"
+              />
+              <span class="text-sm font-semibold text-slate-800">Ashar</span>
+            </label>
+            <label
+              class="flex items-center gap-3 rounded-2xl border border-emerald-100 bg-white px-4 py-3 shadow-sm"
+            >
+              <input
+                type="checkbox"
+                id="shalatMaghrib"
+                class="h-5 w-5 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-400"
+              />
+              <span class="text-sm font-semibold text-slate-800">Maghrib</span>
+            </label>
+            <label
+              class="flex items-center gap-3 rounded-2xl border border-emerald-100 bg-white px-4 py-3 shadow-sm sm:col-span-2"
+            >
+              <input
+                type="checkbox"
+                id="shalatIsya"
+                class="h-5 w-5 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-400"
+              />
+              <span class="text-sm font-semibold text-slate-800">Isya</span>
+            </label>
+          </div>
+
+          <!-- Shalat tambahan (sunnah, qadha, dll) -->
+          <div class="space-y-3">
+            <div
+              class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
+            >
+              <input
+                type="text"
+                id="shalatExtraInput"
+                placeholder="Tambah shalat sunnah (misal: Dhuha)"
+                class="w-full rounded-xl border border-emerald-100 bg-white px-4 py-3 text-sm font-semibold text-emerald-900 placeholder:text-slate-400 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all"
+              />
+              <button
+                id="addShalatExtra"
+                type="button"
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-emerald-800 ring-1 ring-emerald-100 shadow-sm hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+              >
+                + Tambah shalat
+              </button>
+            </div>
+            <div id="shalatExtraList" class="grid gap-2 sm:grid-cols-2"></div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 text-sm text-slate-700">
+              <span
+                id="shalatProgress"
+                class="text-base font-semibold text-emerald-800"
+                >0%</span
+              >
+              <span class="text-slate-500">progress</span>
+              <span class="text-slate-300">•</span>
+              <span id="shalatStatus" class="font-semibold text-slate-700"
+                >Belum optimal</span
+              >
+            </div>
+            <div class="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
+              <div
+                id="shalatBar"
+                class="h-full rounded-full bg-emerald-500 transition-all"
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+
+          <button
+            id="saveShalat"
+            type="button"
+            class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-200 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
+          >
+            Simpan Shalat
+          </button>
+        </section>
+
+        <!-- Baca Quran -->
+        <section
+          class="card-clean rounded-3xl p-6 md:p-8 space-y-6"
+          aria-label="Progress baca Qur'an"
+        >
+          <div class="space-y-2">
+            <p class="text-sm font-semibold text-emerald-800">Baca Qur'an</p>
+            <h2 class="text-xl font-bold text-emerald-900">Target harian</h2>
+            <p class="text-sm text-slate-600">
+              Hitung progress tilawah dan tandai jika target selesai.
+            </p>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="space-y-2">
+              <label
+                for="quranTarget"
+                class="block text-sm font-semibold text-slate-700"
+                >Target halaman</label
+              >
+              <input
+                type="number"
+                id="quranTarget"
+                min="0"
+                placeholder="Misal 10"
+                class="w-full rounded-xl border border-emerald-100 bg-white px-4 py-3 text-sm font-semibold text-emerald-900 placeholder:text-slate-400 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all"
+              />
+            </div>
+            <div class="space-y-2">
+              <label
+                for="quranRead"
+                class="block text-sm font-semibold text-slate-700"
+                >Halaman dibaca</label
+              >
+              <input
+                type="number"
+                id="quranRead"
+                min="0"
+                placeholder="Misal 4"
+                class="w-full rounded-xl border border-emerald-100 bg-white px-4 py-3 text-sm font-semibold text-emerald-900 placeholder:text-slate-400 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all"
+              />
+            </div>
+          </div>
+
+          <label
+            class="flex items-center gap-3 text-sm font-semibold text-slate-800"
+          >
+            <input
+              type="checkbox"
+              id="quranDone"
+              class="h-4 w-4 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-400"
+            />
+            Tandai target selesai
+          </label>
+
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 text-sm text-slate-700">
+              <span
+                id="quranProgress"
+                class="text-base font-semibold text-emerald-800"
+                >0%</span
+              >
+              <span class="text-slate-500">progress</span>
+              <span class="text-slate-300">•</span>
+              <span id="quranStatus" class="font-semibold text-slate-700"
+                >Masih bisa ditambah</span
+              >
+            </div>
+            <div class="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
+              <div
+                id="quranBar"
+                class="h-full rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 transition-all"
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+
+          <button
+            id="saveQuran"
+            type="button"
+            class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-200 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
+          >
+            Simpan Tilawah
+          </button>
+        </section>
+
+        <!-- Puasa -->
+        <section
+          class="card-clean rounded-3xl p-6 md:p-8 space-y-6 lg:col-span-2"
+          aria-label="Progress puasa Ramadhan"
+        >
+          <div class="space-y-2">
+            <p class="text-sm font-semibold text-emerald-800">Puasa</p>
+            <h2 class="text-xl font-bold text-emerald-900">Kalender 30 hari</h2>
+            <p class="text-sm text-slate-600">
+              Tandai hari yang sudah berpuasa dan lihat progres 30 hari.
+            </p>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="space-y-2">
+              <label
+                for="ramadhanDay"
+                class="block text-sm font-semibold text-slate-700"
+                >Hari ke berapa Ramadhan?</label
+              >
+              <input
+                type="number"
+                id="ramadhanDay"
+                min="1"
+                max="30"
+                value="1"
+                class="w-full rounded-xl border border-emerald-100 bg-white px-4 py-3 text-sm font-semibold text-emerald-900 placeholder:text-slate-400 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all"
+              />
+              <p class="text-xs text-slate-500">
+                Isi sesuai hari berjalan agar checkbox harian tepat sasaran.
+              </p>
+            </div>
+            <div class="flex flex-col justify-end gap-3">
+              <label
+                class="flex items-center gap-3 text-sm font-semibold text-slate-800"
+              >
+                <input
+                  type="checkbox"
+                  id="puasaToday"
+                  class="h-4 w-4 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-400"
+                />
+                Sudah puasa hari ini
+              </label>
+              <div class="space-y-2">
+                <label
+                  for="puasaStatusSelect"
+                  class="block text-sm font-semibold text-slate-700"
+                  >Status hari ini</label
+                >
+                <select
+                  id="puasaStatusSelect"
+                  class="w-full rounded-xl border border-emerald-100 bg-white px-3 py-2.5 text-sm font-semibold text-emerald-900 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all"
+                >
+                  <option value="none">Belum pilih</option>
+                  <option value="done">Puasa</option>
+                  <option value="excused">Tidak puasa (udzur)</option>
+                </select>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-slate-700">
+                <span
+                  id="puasaProgress"
+                  class="text-base font-semibold text-emerald-800"
+                  >0%</span
+                >
+                <span class="text-slate-500">progress</span>
+                <span class="text-slate-300">•</span>
+                <span id="puasaStatus" class="font-semibold text-slate-700"
+                  >Yuk semangat</span
+                >
+              </div>
+              <div
+                class="h-2.5 w-full overflow-hidden rounded-full bg-slate-100"
+              >
+                <div
+                  id="puasaBar"
+                  class="h-full rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 transition-all"
+                  style="width: 0%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm font-semibold text-slate-700 mb-3">
+              Checklist 30 hari
+            </p>
+            <div
+              id="puasaGrid"
+              class="grid grid-cols-6 gap-2 sm:grid-cols-10"
+            ></div>
+          </div>
+
+          <button
+            id="savePuasa"
+            type="button"
+            class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-200 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
+          >
+            Simpan Puasa
+          </button>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="text-center pt-6 border-t border-emerald-100">
+        <p class="text-sm text-slate-500">
+          Ramadhan Challenge 2026 — To-Do List Ibadah
+        </p>
+      </footer>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="./assets/js/todo.js"></script>
+  </body>
+</html>
