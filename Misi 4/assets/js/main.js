@@ -1,25 +1,12 @@
-import {
-  defaultState,
-  loadState,
-  saveState,
-  showToast,
-} from "./state.js";
-import {
-  todayKey,
-  clampDay,
-  statusFromProgress,
-} from "./helpers.js";
+import { defaultState, loadState, saveState, showToast } from "./state.js";
+import { todayKey, clampDay, statusFromProgress } from "./helpers.js";
 import {
   updateShalatUI,
   renderShalatExtras,
   hydrateShalat,
   bindShalatEvents,
 } from "./shalat.js";
-import {
-  updateDzikirUI,
-  hydrateDzikir,
-  bindDzikirEvents,
-} from "./dzikir.js";
+import { updateDzikirUI, hydrateDzikir, bindDzikirEvents } from "./dzikir.js";
 import { updateQuranUI, hydrateQuran, bindQuranEvents } from "./quran.js";
 import {
   updatePuasaUI,
@@ -91,7 +78,10 @@ const persist = (message) => saveState(state, message, toastEl);
 
 function resetDailyProgress() {
   Object.keys(state.shalat).forEach((k) => (state.shalat[k] = false));
-  state.shalatExtras = state.shalatExtras.map((item) => ({ ...item, done: false }));
+  state.shalatExtras = state.shalatExtras.map((item) => ({
+    ...item,
+    done: false,
+  }));
   Object.values(elements.shalatCheckboxes).forEach((input) => {
     if (input) input.disabled = false;
   });
@@ -140,9 +130,12 @@ function scheduleMidnightReset() {
 
 function updateOverall(shalatP, quranP, puasaP, dzikirP) {
   const puasaTodayStatus = state.puasa.days[(state.puasa.currentDay || 1) - 1];
-  const puasaTodayProgress = puasaTodayStatus === "done" || puasaTodayStatus === "excused" ? 100 : 0;
+  const puasaTodayProgress =
+    puasaTodayStatus === "done" || puasaTodayStatus === "excused" ? 100 : 0;
   const metrics = [shalatP, quranP, dzikirP, puasaTodayProgress];
-  const overall = Math.round(metrics.reduce((sum, v) => sum + v, 0) / metrics.length);
+  const overall = Math.round(
+    metrics.reduce((sum, v) => sum + v, 0) / metrics.length,
+  );
   elements.overallProgressEl.textContent = `${overall}%`;
   elements.overallBarEl.style.width = `${overall}%`;
 

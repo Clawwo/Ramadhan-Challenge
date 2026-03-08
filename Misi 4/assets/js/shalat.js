@@ -22,11 +22,13 @@ export function renderShalatExtras(state, els, refreshAll, save) {
   els.shalatExtraListEl.innerHTML = "";
   state.shalatExtras.forEach((item) => {
     const label = document.createElement("label");
-    label.className = "flex items-center gap-3 rounded-2xl border border-emerald-100 bg-white px-4 py-3 shadow-sm";
+    label.className =
+      "flex items-center gap-3 rounded-2xl border border-emerald-100 bg-white px-4 py-3 shadow-sm";
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.className = "h-5 w-5 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-400";
+    checkbox.className =
+      "h-5 w-5 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-400";
     checkbox.checked = !!item.done;
     checkbox.disabled = !!item.done;
     checkbox.addEventListener("change", () => {

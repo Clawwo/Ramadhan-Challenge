@@ -43,7 +43,9 @@ export function updatePuasaUI(state, els, refreshAll, save) {
       btn.className = "day-pill";
       btn.dataset.day = i;
       btn.textContent = i;
-      btn.addEventListener("click", () => togglePuasaDay(state, i, els, refreshAll, save));
+      btn.addEventListener("click", () =>
+        togglePuasaDay(state, i, els, refreshAll, save),
+      );
       els.puasaGridEl.appendChild(btn);
     }
   }

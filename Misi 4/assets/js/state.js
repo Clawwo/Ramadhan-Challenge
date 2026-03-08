@@ -62,7 +62,10 @@ export function loadState() {
         quran: { ...defaultState.quran, ...(parsed.quran || {}) },
         puasa: {
           days: normalizedDays,
-          currentDay: clampDay((parsed.puasa && parsed.puasa.currentDay) || defaultState.puasa.currentDay),
+          currentDay: clampDay(
+            (parsed.puasa && parsed.puasa.currentDay) ||
+              defaultState.puasa.currentDay,
+          ),
         },
       };
     }
