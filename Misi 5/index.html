@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Jadwal Imsakiyah Ramadhan - Cek jadwal shalat dan imsak untuk kotamu."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Jadwal Imsakiyah Ramadhan</title>
+  </head>
+  <body class="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-emerald-100 shadow-sm">
+      <nav class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="../Misi 6/index.html" class="flex items-center gap-2.5 group">
+            <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600 group-hover:bg-emerald-700 transition-colors">
+              <svg class="h-4.5 w-4.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              </svg>
+            </div>
+            <span class="text-lg font-semibold text-slate-800 tracking-tight">Ramadhan Portal</span>
+          </a>
+          <ul class="hidden md:flex items-center gap-1">
+            <li><a href="../Misi 6/index.html" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Home</a></li>
+            <li><a href="#" class="px-4 py-2 rounded-lg text-sm font-medium text-emerald-700 bg-emerald-50 transition-colors">Jadwal Imsakiyah</a></li>
+            <li><a href="../Misi 1/index.html" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Doa Harian</a></li>
+            <li><a href="../Misi 2/index.html" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Counter Dzikir</a></li>
+            <li><a href="../Misi 3/index.html" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 transition-colors">Kalkulator Zakat</a></li>
+          </ul>
+          <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center h-10 w-10 rounded-lg text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 transition-colors" aria-label="Toggle menu">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-emerald-100 mt-2">
+          <ul class="flex flex-col gap-1 pt-4">
+            <li><a href="../Misi 6/index.html" class="block px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50">Home</a></li>
+            <li><a href="#" class="block px-4 py-3 rounded-lg text-sm font-medium text-emerald-700 bg-emerald-50">Jadwal Imsakiyah</a></li>
+            <li><a href="../Misi 1/index.html" class="block px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50">Doa Harian</a></li>
+            <li><a href="../Misi 2/index.html" class="block px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50">Counter Dzikir</a></li>
+            <li><a href="../Misi 3/index.html" class="block px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50">Kalkulator Zakat</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 md:px-8 py-10 lg:py-14 space-y-10">
+      <!-- Header -->
+      <header class="text-center space-y-3">
+        <div
+          class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-sm ring-1 ring-emerald-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            class="h-6 w-6 text-emerald-700"
+            aria-hidden="true"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M21 10H3m18 0a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2m18 0V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2m9 4v6m-3-3h6"
+            />
+          </svg>
+        </div>
+        <h1 class="text-3xl font-bold text-emerald-900 sm:text-4xl">
+          Jadwal Imsakiyah
+        </h1>
+        <p class="mx-auto max-w-2xl text-[17px] text-slate-700">
+          Jadwal imsak dan shalat Ramadhan 1447 H / Maret 2026.
+        </p>
+      </header>
+
+      <main class="space-y-6" aria-label="Jadwal Imsakiyah">
+        <!-- Pilih Kota -->
+        <section class="card-clean rounded-3xl p-6 md:p-8 space-y-4">
+          <div class="flex flex-col gap-4">
+            <!-- Row 1: Pulau/Region -->
+            <div class="space-y-2">
+              <label
+                for="regionSelect"
+                class="block text-sm font-semibold text-slate-600"
+              >
+                Pilih Pulau/Wilayah
+              </label>
+              <select
+                id="regionSelect"
+                class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 font-medium focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none transition-all"
+              >
+                <option value="">-- Pilih Pulau/Wilayah --</option>
+              </select>
+            </div>
+            <!-- Row 2: Provinsi & Kota -->
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div class="space-y-2">
+                <label
+                  for="provinceSelect"
+                  class="block text-sm font-semibold text-slate-600"
+                >
+                  Pilih Provinsi
+                </label>
+                <select
+                  id="provinceSelect"
+                  class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 font-medium focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none transition-all disabled:bg-slate-50 disabled:text-slate-400 disabled:cursor-not-allowed"
+                  disabled
+                >
+                  <option value="">-- Pilih Pulau Dulu --</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label
+                  for="citySelect"
+                  class="block text-sm font-semibold text-slate-600"
+                >
+                  Pilih Kota/Kabupaten
+                </label>
+                <select
+                  id="citySelect"
+                  class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 font-medium focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none transition-all disabled:bg-slate-50 disabled:text-slate-400 disabled:cursor-not-allowed"
+                  disabled
+                >
+                  <option value="">-- Pilih Provinsi Dulu --</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info Lokasi -->
+          <div
+            id="locationInfo"
+            class="hidden rounded-xl bg-emerald-50 px-4 py-3"
+          >
+            <p class="text-sm text-emerald-800">
+              <span class="font-semibold" id="locationName">-</span>
+              <span class="text-emerald-600" id="locationRegion"></span>
+            </p>
+          </div>
+        </section>
+
+        <!-- Loading State -->
+        <div
+          id="loadingState"
+          class="hidden card-clean rounded-3xl p-8 text-center"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <div
+              class="h-10 w-10 animate-spin rounded-full border-4 border-emerald-200 border-t-emerald-600"
+            ></div>
+            <p class="text-slate-600 font-medium">Memuat data...</p>
+          </div>
+        </div>
+
+        <!-- Error State -->
+        <div
+          id="errorState"
+          class="hidden card-clean rounded-3xl p-8 text-center"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-red-100"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-red-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+            </div>
+            <div>
+              <p class="text-slate-900 font-semibold">Gagal memuat data</p>
+              <p id="errorMessage" class="text-sm text-slate-500 mt-1">
+                Terjadi kesalahan saat mengambil data jadwal.
+              </p>
+            </div>
+            <button
+              id="retryBtn"
+              class="rounded-xl bg-emerald-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700 transition-colors"
+            >
+              Coba Lagi
+            </button>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="card-clean rounded-3xl p-8 text-center">
+          <div class="flex flex-col items-center gap-4">
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-100"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-slate-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <p class="text-slate-600">
+              Pilih kota untuk melihat jadwal imsakiyah.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tabel Jadwal -->
+        <section
+          id="scheduleSection"
+          class="hidden card-clean rounded-3xl p-6 md:p-8 space-y-4"
+        >
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-bold text-slate-900">Jadwal Shalat</h2>
+            <span
+              id="scheduleCount"
+              class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700"
+            >
+              0 hari
+            </span>
+          </div>
+
+          <div class="overflow-x-auto -mx-6 md:-mx-8">
+            <div class="inline-block min-w-full px-6 md:px-8">
+              <table class="min-w-full">
+                <thead>
+                  <tr class="border-b border-slate-200">
+                    <th
+                      class="px-3 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                    >
+                      Tanggal
+                    </th>
+                    <th
+                      class="px-3 py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                    >
+                      Imsak
+                    </th>
+                    <th
+                      class="px-3 py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                    >
+                      Subuh
+                    </th>
+                    <th
+                      class="px-3 py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                    >
+                      Dzuhur
+                    </th>
+                    <th
+                      class="px-3 py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                    >
+                      Ashar
+                    </th>
+                    <th
+                      class="px-3 py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                    >
+                      Maghrib
+                    </th>
+                    <th
+                      class="px-3 py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                    >
+                      Isya
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="scheduleBody" class="divide-y divide-slate-100">
+                  <!-- Data akan diisi oleh JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="text-center pt-6 border-t border-slate-100">
+        <p class="text-sm text-slate-500">
+          Data dari
+          <a
+            href="https://api.myquran.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-emerald-600 hover:text-emerald-700 font-medium"
+            >MyQuran API</a
+          >
+          • Ramadhan Challenge 2026
+        </p>
+      </footer>
+    </div>
+
+    <script type="module" src="./assets/js/main.js"></script>
+
+    <!-- Mobile Menu Script -->
+    <script>
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
