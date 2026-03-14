@@ -19,12 +19,14 @@ Kumpulan mini project bertema Ramadhan dari Misi 1 sampai Misi 6.
 4. Buka file HTML dari misi yang ingin dijalankan.
 
 Contoh URL lokal jika memakai Live Server:
+
 - Misi 6: /Misi%206/index.html
 - Misi 5: /Misi%205/index.html
 
 ## Fokus Misi 7 (Final)
 
 Misi ini berfokus pada:
+
 - Optimisasi performa CSS dan JS
 - Testing cross-browser
 - Testing mobile responsiveness
@@ -33,33 +35,38 @@ Misi ini berfokus pada:
 ## Optimisasi Yang Sudah Diterapkan
 
 ### HTML
+
 - Menambahkan preconnect untuk CDN Tailwind agar koneksi awal lebih cepat.
 - Script Tailwind CDN diubah menjadi defer untuk mengurangi blocking render.
 - Script menu mobile dipindah ke file JS terpisah agar lebih rapi dan cache-friendly.
 - Menambahkan atribut aksesibilitas menu mobile: aria-controls dan aria-expanded.
 
 ### CSS
+
 - Menambahkan variabel CSS untuk warna utama supaya konsisten dan mudah maintain.
 - Menambahkan prefers-reduced-motion untuk pengguna yang sensitif terhadap animasi.
 - Menambahkan fallback untuk browser yang tidak mendukung backdrop-filter.
 - Menambahkan content-visibility pada section utama untuk optimasi rendering awal.
 
 ### JavaScript
+
 - Refactor logic menu mobile ke file terpisah.
 - Tambahan handler untuk:
-	- tutup menu saat klik di luar area menu,
-	- tutup menu saat tekan Escape,
-	- reset menu saat resize ke desktop.
+  - tutup menu saat klik di luar area menu,
+  - tutup menu saat tekan Escape,
+  - reset menu saat resize ke desktop.
 
 ## Checklist Testing Cross-Browser
 
 Lakukan pengujian minimal pada:
+
 - Google Chrome (versi terbaru)
 - Microsoft Edge (versi terbaru)
 - Mozilla Firefox (versi terbaru)
 - Safari (macOS/iOS)
 
 Yang dicek:
+
 - Layout tidak pecah pada ukuran desktop dan mobile.
 - Navigasi menu mobile berfungsi normal.
 - Link antar misi berjalan benar.
@@ -69,12 +76,14 @@ Yang dicek:
 ## Checklist Testing Mobile
 
 Uji di rentang lebar berikut:
+
 - 320px
 - 375px
 - 768px
 - 1024px
 
 Yang dicek:
+
 - Teks tetap terbaca, tidak bertabrakan.
 - Tombol dan link mudah disentuh.
 - Menu mobile bisa dibuka dan ditutup tanpa bug.

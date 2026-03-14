@@ -21,6 +21,7 @@ Tujuan: validasi cepat fitur inti sebelum deploy ke EdgeOne.
 ## Matrix Uji per Misi
 
 ### Misi 1 - Doa Harian
+
 - [ ] 320: teks Arab dan transliterasi tetap terbaca
 - [ ] 375: card doa tidak overflow
 - [ ] 768: layout 2 kolom/stack sesuai desain
@@ -28,6 +29,7 @@ Tujuan: validasi cepat fitur inti sebelum deploy ke EdgeOne.
 - [ ] Navigasi ke misi lain berfungsi
 
 ### Misi 2 - Counter Dzikir
+
 - [ ] 320: gauge dan tombol tidak tumpang tindih
 - [ ] 375: input custom target tetap bisa diisi
 - [ ] 768: badge target tercapai muncul normal
@@ -35,6 +37,7 @@ Tujuan: validasi cepat fitur inti sebelum deploy ke EdgeOne.
 - [ ] Reset counter mengembalikan state awal
 
 ### Misi 3 - Kalkulator Zakat
+
 - [ ] 320: form input masih nyaman diisi
 - [ ] 375: hasil kalkulasi muncul tanpa overflow
 - [ ] 768: switch jenis zakat berjalan normal
@@ -42,6 +45,7 @@ Tujuan: validasi cepat fitur inti sebelum deploy ke EdgeOne.
 - [ ] Enter key pada input memicu hitung
 
 ### Misi 4 - To-Do List
+
 - [ ] 320: checklist ibadah tetap usable
 - [ ] 375: progress bar tidak pecah
 - [ ] 768: grid puasa 30 hari tampil rapi
@@ -49,6 +53,7 @@ Tujuan: validasi cepat fitur inti sebelum deploy ke EdgeOne.
 - [ ] Simpan state dan reload tetap persist
 
 ### Misi 5 - Jadwal Imsakiyah
+
 - [ ] 320: dropdown region/provinsi/kota tetap bisa dipakai
 - [ ] 375: tabel bisa di-scroll horizontal
 - [ ] 768: loading/error state tampil normal
@@ -56,6 +61,7 @@ Tujuan: validasi cepat fitur inti sebelum deploy ke EdgeOne.
 - [ ] Retry button bekerja saat error
 
 ### Misi 6 - Landing Portal
+
 - [ ] 320: hero section dan CTA tetap rapi
 - [ ] 375: kartu fitur tidak overlap
 - [ ] 768: menu desktop mulai aktif sesuai breakpoint
@@ -65,6 +71,7 @@ Tujuan: validasi cepat fitur inti sebelum deploy ke EdgeOne.
 ## Catatan Hasil Uji
 
 Isi ringkas setelah testing:
+
 - Browser:
 - Device:
 - Temuan bug:

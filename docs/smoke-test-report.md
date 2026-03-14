@@ -8,6 +8,7 @@ Scope: Misi 1 sampai Misi 6
 Status: PASS
 
 Poin yang terverifikasi otomatis:
+
 - Semua file halaman misi tersedia: Misi 1-6 index.html
 - Semua halaman punya meta viewport
 - Semua halaman punya meta theme-color
@@ -20,12 +21,14 @@ Poin yang terverifikasi otomatis:
 Status: PENDING MANUAL
 
 Viewport yang harus diuji manual:
+
 - 320
 - 375
 - 768
 - 1024
 
 Referensi checklist manual:
+
 - docs/smoke-test-checklist.md
 
 ## Ringkasan Risiko Sisa

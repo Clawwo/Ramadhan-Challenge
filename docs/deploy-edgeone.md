@@ -5,10 +5,12 @@ Panduan ini untuk static hosting project Ramadhan Challenge di EdgeOne.
 ## 1. Struktur Entry Root
 
 Sudah disiapkan:
+
 - Root entry di index.html
 - Redirect ke Misi 6: ./Misi%206/index.html
 
 Catatan:
+
 - Nama folder dengan spasi wajib ditulis URL-encoded saat jadi link, contoh: Misi%206
 
 ## 2. Pre-Deploy Checklist
@@ -21,6 +23,7 @@ Catatan:
 ## 3. File yang Wajib Di-commit Dulu
 
 Daftar minimum untuk optimisasi dan deploy saat ini:
+
 - Misi 1/index.html
 - Misi 1/main.css
 - Misi 2/index.html
@@ -47,10 +50,12 @@ Daftar minimum untuk optimisasi dan deploy saat ini:
 Opsi aman (2 commit):
 
 Commit 1 (optimisasi aplikasi)
+
 - Semua perubahan di folder Misi 1 sampai Misi 6
 - Tambahan shared script: assets/js/mobile-menu.js
 
 Commit 2 (deploy dan dokumentasi)
+
 - index.html (root redirect)
 - README.md
 - folder docs/

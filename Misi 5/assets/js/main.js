@@ -55,14 +55,14 @@ async function loadCities() {
 
     // Group cities by region > province
     regionData = {};
-    REGIONS.forEach(region => {
+    REGIONS.forEach((region) => {
       regionData[region] = {};
     });
 
     cities.forEach((city) => {
       const provinceName = getProvinceById(city.id);
-      const regionName = PROVINCE_TO_REGION[provinceName] || 'LAINNYA';
-      
+      const regionName = PROVINCE_TO_REGION[provinceName] || "LAINNYA";
+
       if (!regionData[regionName]) {
         regionData[regionName] = {};
       }
@@ -94,7 +94,8 @@ function onRegionChange() {
 
   if (!selectedRegion) {
     provinceSelect.disabled = true;
-    provinceSelect.innerHTML = '<option value="">-- Pilih Pulau Dulu --</option>';
+    provinceSelect.innerHTML =
+      '<option value="">-- Pilih Pulau Dulu --</option>';
     showEmpty();
     hideLocationInfo();
     return;
@@ -118,7 +119,8 @@ function onProvinceChange() {
 
   if (!selectedProvince) {
     citySelect.disabled = true;
-    citySelect.innerHTML = '<option value="">-- Pilih Provinsi Dulu --</option>';
+    citySelect.innerHTML =
+      '<option value="">-- Pilih Provinsi Dulu --</option>';
     showEmpty();
     hideLocationInfo();
     return;
