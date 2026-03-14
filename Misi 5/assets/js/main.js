@@ -187,9 +187,10 @@ function setupEventListeners() {
   // Handle scroll indicator for table on mobile
   const tableContainer = document.querySelector(".overflow-x-auto");
   if (tableContainer) {
-    tableContainer.addEventListener("scroll", () => {
+    let ticking = false;
+
+    const updateScrollIndicator = () => {
       const hasScroll = tableContainer.scrollWidth > tableContainer.clientWidth;
-      const isScrolled = tableContainer.scrollLeft > 0;
       const isAtEnd =
         tableContainer.scrollLeft + tableContainer.clientWidth >=
         tableContainer.scrollWidth - 10;
@@ -199,7 +200,23 @@ function setupEventListeners() {
       } else {
         tableContainer.classList.remove("has-scroll");
       }
-    });
+
+      ticking = false;
+    };
+
+    tableContainer.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateScrollIndicator);
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
+
+    window.addEventListener("resize", updateScrollIndicator, { passive: true });
+    updateScrollIndicator();
   }
 }
 

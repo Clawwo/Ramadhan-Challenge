@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputs = [hargaEmasEl, gajiEl, penghasilanLainEl, totalEmasEl];
   inputs.forEach((input) => {
     if (input) {
-      input.addEventListener("keypress", (e) => {
+      input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
           hitungZakat();
         }

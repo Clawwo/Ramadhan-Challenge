@@ -9,6 +9,12 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-primary: #10b981;
+  --color-primary-dark: #059669;
+  --color-surface-soft: #f1f5f9;
+}
+
 /* Font Settings */
 body {
   font-family:
@@ -20,6 +26,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Smooth Scrolling */
@@ -27,10 +34,15 @@ html {
   scroll-behavior: smooth;
 }
 
+main > section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
 /* Focus Styles for Accessibility */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #10b981;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -41,22 +53,28 @@ button:focus-visible {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--color-surface-soft);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #10b981;
+  background: var(--color-primary);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #059669;
+  background: var(--color-primary-dark);
 }
 
 /* Selection Color */
 ::selection {
-  background-color: #10b981;
+  background-color: var(--color-primary);
   color: white;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  header {
+    background-color: rgba(255, 255, 255, 0.96);
+  }
 }
 
 /* Animation Keyframes */
@@ -206,6 +224,20 @@ button:focus-visible {
 
 #mobile-menu:not(.hidden) {
   animation: fadeInUp 0.3s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Quote Section Decorative Pattern */

@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#059669" />
     <meta
       name="description"
       content="Ramadhan Portal - Pusat navigasi fitur Ramadhan lengkap: jadwal imsakiyah, doa harian, kalkulator zakat, dan lainnya."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/index.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
     <title>Ramadhan Portal — Pusat Fitur Ramadhan</title>
   </head>
   <body
@@ -93,6 +95,8 @@
             id="mobile-menu-btn"
             class="md:hidden flex items-center justify-center h-10 w-10 rounded-lg text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
             aria-label="Toggle menu"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
           >
             <svg
               class="h-6 w-6"
@@ -679,14 +683,6 @@
       </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
-    <script>
-      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-    </script>
+    <script src="../assets/js/mobile-menu.js" defer></script>
   </body>
 </html>
