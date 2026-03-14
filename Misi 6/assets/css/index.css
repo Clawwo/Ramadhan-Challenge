@@ -15,6 +15,38 @@
   --color-surface-soft: #f1f5f9;
 }
 
+/* Keep brand icon stable even before Tailwind runtime classes are active. */
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+}
+
+.site-logo-mark {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background-color: #059669;
+}
+
+.site-logo-icon {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.site-logo-text {
+  color: #1e293b;
+  font-weight: 600;
+  line-height: 1;
+}
+
 /* Font Settings */
 body {
   font-family:
