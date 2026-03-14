@@ -91,11 +91,4 @@ Yang dicek:
 
 ## Catatan
 
-- Proyek ini menggunakan Tailwind CDN pada Misi 6 agar setup tetap sederhana.
-- Untuk produksi, disarankan build Tailwind secara lokal agar ukuran CSS lebih optimal dan lebih stabil offline.
-
-## Dokumen QA dan Deploy
-
-- Checklist smoke test: docs/smoke-test-checklist.md
-- Report quick smoke test: docs/smoke-test-report.md
-- Panduan deploy EdgeOne: docs/deploy-edgeone.md
+- Proyek ini menggunakan Tailwind CDN pada Misi 6 agar setup tetap sederhana, jadi kemungkinan akan terjadi beberapa hal pada bagian tampilan karena menggunakan CDN membuat website tidak optimal.
